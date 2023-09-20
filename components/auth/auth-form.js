@@ -36,7 +36,13 @@ function AuthForm() {
     const password = passwordInputRef.current.value;
 
     if (isLogin) {
-      signIn();
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: email,
+        password: password,
+      });
+
+      console.log(result);
     } else {
       // create a new user
       try {
